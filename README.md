@@ -2,6 +2,21 @@
 
 左侧栏的打印机管理插件：找到局域网里的共享打印机，把 Windows 打印队列绑到它、设为默认，并让它在打印机断电换 IP 后继续能打。
 
+## 安装
+
+本仓库是一个 DSH bundle（`package.json` 里的 `dsh.bundle.patch` + `dsh.client`）。装法二选一：
+
+1. **让 Harness 安装本地目录**：在 DSH 里把本目录作为 bundle 安装（`install_bundle`），装完刷新页面，左侧栏出现打印机图标。
+2. **手写 patch**：在 profile 的 `cordis.patch.yml` 里插入一行，`name` 指向克隆下来的绝对路径：
+
+   ```yaml
+   - insert:
+       - id: printer-warden
+         name: file:///C:/path/to/printer-warden
+   ```
+
+环境要求：Windows 10/11 + DSH Web GUI；打印机和本机在同一网段。
+
 ## 它解决什么
 
 - 打印机 DHCP 地址变了，队列还指着老 IP → 打印任务卡住/报错。
