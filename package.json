@@ -1,0 +1,31 @@
+{
+  "name": "@local/printer-warden",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "局域网共享打印机管家：发现打印机、按型号识别、一键绑定为默认打印机，并在 IP 变化时自动修复打印端口。",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "lib/*.js",
+    "scripts/*.ps1",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-sidebar"]
+    }
+  }
+}

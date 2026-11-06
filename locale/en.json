@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "title": "Printer Warden",
+    "description": "Finds the shared printer on your LAN, binds the Windows print queue to it, sets it as default, and repairs the port when a power cycle changes its IP."
+  },
+  "panel": {
+    "title": "Printer Warden",
+    "subtitle": "LAN shared printer · auto discovery · survives IP changes"
+  }
+}

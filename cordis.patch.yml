@@ -1,0 +1,3 @@
+- insert:
+    - id: printer-warden
+      name: '@local/printer-warden'
